@@ -50,4 +50,14 @@ class AiCourseTutorServiceTest {
         System.out.println("User 1: " + response1);
         System.out.println("User 2: " + response2);
     }
+
+    @Test
+    void testKnowledgeSummary() {
+        String userMessage = "Random variables and distributions: 1-sentence summary, 3 brief concepts.";
+        AiCourseTutorService.KnowledgeSummary result
+                = aiCourseTutorService.chatForKnowledgeSummary(5, userMessage);
+        System.out.println("Topic: " + result.topic());
+        System.out.println("Summary: " + result.summary());
+        System.out.println("Key Concepts: " + result.keyConcepts());
+    }
 }
