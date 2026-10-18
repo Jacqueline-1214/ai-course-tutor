@@ -45,7 +45,7 @@ public class RagConfig {
                 //text segment
                 //Use file name as metadata
                 .textSegmentTransformer(textSegment ->
-                        TextSegment.from(textSegment.metadata().getString("file name") +
+                        TextSegment.from(textSegment.metadata().getString("file_name") +
                                 "\n" + textSegment.text(), textSegment.metadata()))
                 //use embedding model
                 .embeddingModel(qwenEmbeddingModel)
@@ -58,7 +58,7 @@ public class RagConfig {
                 .embeddingStore(embeddingStore)
                 .embeddingModel(qwenEmbeddingModel)
                 .maxResults(5)
-                .minScore(0.8)
+                .minScore(0.7)
                 .build();
         return contentRetriever;
     }

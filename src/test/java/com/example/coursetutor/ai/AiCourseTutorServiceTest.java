@@ -1,5 +1,6 @@
 package com.example.coursetutor.ai;
 
+import dev.langchain4j.service.Result;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -63,8 +64,9 @@ class AiCourseTutorServiceTest {
 
     @Test
     void chatWithRag() {
-        String result = aiCourseTutorService.chat(6,"What are the different types of distributions?");
-        System.out.println(result);
+        Result<String> result = aiCourseTutorService.chatWithRag(6,"What are the different types of distributions?");
+        System.out.println(result.sources());
+        System.out.println(result.content());
 
     }
 }
