@@ -60,4 +60,11 @@ class AiCourseTutorServiceTest {
         System.out.println("Summary: " + result.summary());
         System.out.println("Key Concepts: " + result.keyConcepts());
     }
+
+    @Test
+    void chatWithRag() {
+        String result = aiCourseTutorService.chat(6,"What are the different types of distributions?");
+        System.out.println(result);
+
+    }
 }

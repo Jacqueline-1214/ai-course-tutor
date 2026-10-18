@@ -3,6 +3,7 @@ package com.example.coursetutor.ai;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.rag.content.retriever.ContentRetriever;
 import dev.langchain4j.service.AiServices;
 import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +14,9 @@ public class AiCourseTutorServiceFactory {
 
     @Resource
     private ChatModel qwenChatModel;
+
+    @Resource
+    private ContentRetriever contentRetriever;
 
     @Bean
     // Register the AI Service as a Spring-managed bean
@@ -26,6 +30,7 @@ public class AiCourseTutorServiceFactory {
                 .chatMemory(chatMemory) // add chatMemory
                 // Isolate chat histories between users
                 .chatMemoryProvider(memoryId -> MessageWindowChatMemory.withMaxMessages(10))
+                .contentRetriever(contentRetriever)//RAG
                 .build();
         return aiCourseTutorService;
     }

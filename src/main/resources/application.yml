@@ -7,4 +7,7 @@ langchain4j:
   community:
     dashscope:
       chat-model:
-        model-name: qwen-plus #cheaper can also use qwen-max。
+        model-name: qwen-plus #cheaper.Can also use qwen-max.
+      embedding-model:
+        model-name: text-embedding-v4
+
